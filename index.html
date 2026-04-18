@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idowu Racheal | Developer & Designer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome for Social Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --bg: #001a33;   /*deep blue*/
+  --text: #fff;
+  --accent: #0A84FF;
+  --glass: rgba(255,255,255,0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 15px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+nav h1 {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav ul li {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+nav ul li:hover {
+  opacity: 1;
+}
+
+/* PROFILE IMAGE */
+.profile-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 18px;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* SECTIONS */
+section {
+  min-height: 100vh;
+  padding: 120px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+}
+
+.hero-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px auto;
+  border: 4px solid var(--accent);
+  box-shadow: 0px 0px 25px rgba(10, 132, 255, 0.7);
+}
+
+.hero h2 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.hero span {
+  background: linear-gradient(90deg,#0A84FF,#5E5CE6);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+.btn {
+  margin: 30px auto 0;
+  padding: 14px 35px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: 0.3s;
+  display: inline-block;
+  color: white;
+}
+
+.btn:hover {
+  background: var(--accent);
+}
+
+/* ABOUT */
+.about {
+  max-width: 700px;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* PROJECTS */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card {
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: #111;
+  transition: 0.4s;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+}
+
+/* SKILLS */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skill {
+  padding: 15px 25px;
+  border-radius: 30px;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+}
+
+/* CONTACT */
+.contact form {
+  max-width: 500px;
+  margin-top: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  background: #111;
+  color: #fff;
+}
+
+/* SCROLL EFFECT */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.8;
+}
+
+footer .social-icons {
+  justify-content: center;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>Racheal</h1>
+
+  <ul>
+    <li onclick="scrollToSection('home')">Home</li>
+    <li onclick="scrollToSection('about')">About</li>
+    <li onclick="scrollToSection('projects')">Projects</li>
+    <li onclick="scrollToSection('skills')">Skills</li>
+    <li onclick="scrollToSection('contact')">Contact</li>
+  </ul>
+
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a>
+    <a href="https://linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+
+  <img src="Racheal.jpg.html" alt="My Photo" class="profile-img">
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <img src="Racheal.jpg.html" alt="My Photo" class="hero-img fade">
+  <h2 class="fade">Hi, I'm <span>Idowu Racheal</span></h2>
+  <p class="fade">A Premium Web Developer crafting beautiful digital experiences.</p>
+  <div class="btn fade" onclick="scrollToSection('projects')">View My Work</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about fade">
+    <h2>About Me</h2>
+    <p>
+      I am Idowu Racheal, a passionate developer focused on creating modern,
+      high-end websites with exceptional user experience and design inspired by Apple and
+       Tesla.
+       I love to build a beautiful friendly websites and to solve problem
+    </p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2 class="fade">Projects</h2>
+
+  <div class="projects">
+    <div class="card fade">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=60" alt="Project 1">
+      <div class="card-content">
+        <h3>Portfolio Website</h3>
+        <p>Modern UI Design</p>
+      </div>
+    </div>
+
+    <div class="card fade">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=60" alt="Project 2">
+      <div class="card-content">
+        <h3>Business Website</h3>
+        <p>Professional Branding</p>
+      </div>
+    </div>
+
+    <div class="card fade">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=60" alt="Project 3">
+      <div class="card-content">
+        <h3>Creative Landing Page</h3>
+        <p>UI/UX Design</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2 class="fade">Skills</h2>
+
+  <div class="skills fade">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">UI/UX Design</div>
+    <div class="skill">Graphic Design</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2 class="fade">Contact Me</h2>
+
+  <form class="fade">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Idowu Racheal. All Rights Reserved.</p>
+
+  <div class="social-icons">
+    <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a>
+    <a href="https://linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+</footer>
+
+<script>
+function scrollToSection(sectionId) {
+  document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+}
+
+// Fade-in effect on scroll
+const fades = document.querySelectorAll(".fade");
+
+function showOnScroll() {
+  fades.forEach(fade => {
+    const rect = fade.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      fade.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", showOnScroll);
+window.addEventListener("load", showOnScroll);
+</script>
+
+</body>
+</html>
